@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/mvc 
 		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<context:annotation-config />
-	<context:component-scan base-package="sxq.demo.controller" />
+	<context:component-scan base-package="com.skec.demo.controller" />
 	<mvc:annotation-driven />
 	<mvc:view-controller path="/" view-name="/index" />
 	<bean id="viewResolver"
@@ -20,9 +20,13 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<mvc:resources mapping="/static/**" location="static/" />
+	<mvc:resources mapping="/common/**" location="common/" />
+	<mvc:resources mapping="/ext/**" location="ext/" />
+	<mvc:resources mapping="/script/**" location="script/" />
+	<mvc:resources mapping="wpcs/**" location="wpcs/" />
 
-	<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<!-- SpringMVvC MultipartResolver处理器 -->
+<!-- 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="UTF-8" />
 		<property name="maxInMemorySize" value="1024" />
 		<property name="maxUploadSize" value="2147483648" />
@@ -35,5 +39,5 @@
 				<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">exception_error</prop>
 			</props>
 		</property>
-	</bean>
+	</bean> -->
 </beans>
